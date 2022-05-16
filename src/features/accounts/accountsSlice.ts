@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { coin, Coin, DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
 import { RootState } from "../../app/store";
-import { Contract as CosmWasmContract } from "@cosmjs/cosmwasm-stargate";
+import { Contract as CosmWasmContract } from "secretjs";
 import { fromMicroCoin, toMicroAmount } from "../../util/coins";
 import { pushMessage } from "../messages/messagesSlice";
 import { FaucetClient } from "@cosmjs/faucet-client";
@@ -188,7 +188,7 @@ export const uploadContract = createAsyncThunk(
     );
 
     try {
-      const { codeId } = await client.upload(address, wasm, "auto");
+      const { codeId } = await client.upload(/* address, */ wasm, /* "auto" */);
 
       dispatch(
         pushMessage({
@@ -241,11 +241,11 @@ export const instantiateContract = createAsyncThunk(
 
     try {
       const { contractAddress } = await client.instantiate(
-        address,
+        // address,
         codeId,
         instantiateMsg,
         label,
-        "auto"
+        // "auto"
       );
 
       dispatch(
@@ -258,6 +258,7 @@ export const instantiateContract = createAsyncThunk(
 
       dispatch(importContract(contractAddress));
     } catch (e) {
+      console.error(e);
       dispatch(
         pushMessage({
           status: "danger",
@@ -278,7 +279,13 @@ export const checkBalance = createAsyncThunk(
     const config = state.connection.config;
     const denom: string = config["microDenom"];
     const client = await connectionManager.getQueryClient(config);
-    return client.getBalance(address, denom);
+    //return client.getBalance(address, denom);
+    const account = await client.getAccount(address);
+    const coin = account?.balance.find(e => e.denom === denom) || {
+      amount: '0',
+      denom: denom
+    };
+    return coin as Coin;
   }
 );
 
@@ -362,15 +369,17 @@ export const sendCoins = createAsyncThunk(
         })
       );
 
-      const { code } = await client.sendTokens(
-        sender,
+      const { transactionHash } = await client.sendTokens(
+        // sender,
         recipient,
         coinsAmount,
-        "auto",
+        // "auto",
         memo
       );
+      console.log(transactionHash);
 
-      if (code !== 0) throw new Error("Transaction failed");
+      const result = await client.restClient.txById(transactionHash);
+      if (result.code) throw new Error("Transaction failed");
 
       dispatch(
         pushMessage({

@@ -1,34 +1,34 @@
 {
-  "juno-mainnet": {
-    "chainName": "Juno Mainnet",
-    "chainId": "juno-1",
-    "rpcEndpoint": "https://rpc-juno.itastakers.com/",
-    "restEndpoint": "https://lcd-juno.itastakers.com/",
+  "secret-mainnet": {
+    "chainName": "Secret Mainnet",
+    "chainId": "secret-4",
+    "rpcEndpoint": "https://secret-4.api.trivium.network:26657/",
+    "restEndpoint": "https://secret-4.api.trivium.network:1317/",
     "faucetEndpoint": "",
-    "addressPrefix": "juno",
-    "microDenom": "ujuno",
+    "addressPrefix": "secret",
+    "microDenom": "uscrt",
     "coinDecimals": "6",
-    "gasPrice": "0.025"
+    "gasPrice": "0.0125"
   },
-  "juno-uni": {
-    "chainName": "Juno Testnet - Uni",
-    "chainId": "uni-2",
-    "rpcEndpoint": "https://rpc.uni.juno.deuslabs.fi",
-    "restEndpoint": "https://lcd.uni.juno.deuslabs.fi",
-    "addressPrefix": "juno",
-    "microDenom": "ujunox",
+  "secret-pulsar": {
+    "chainName": "Secret Testnet - Pulsar",
+    "chainId": "pulsar-2",
+    "rpcEndpoint": "https://pulsar-2.api.trivium.network:26657/",
+    "restEndpoint": "https://pulsar-2.api.trivium.network:1317/",
+    "addressPrefix": "secret",
+    "microDenom": "uscrt",
     "coinDecimals": "6",
-    "gasPrice": "0.025"
+    "gasPrice": "0.25"
   },
-  "juno-local-test": {
-    "chainName": "Juno Local Test",
-    "chainId": "testing",
+  "local-secret": {
+    "chainName": "Local Secret",
+    "chainId": "secretdev-1",
     "rpcEndpoint": "http://localhost:26657",
-    "restEndpoint": "http://localhost:1317",
-    "faucetEndpoint": "http://localhost:8000",
-    "addressPrefix": "juno",
-    "microDenom": "ujunox",
+    "restEndpoint": "http://localhost:1337",
+    "faucetEndpoint": "http://localhost:5000",
+    "addressPrefix": "secret",
+    "microDenom": "uscrt",
     "coinDecimals": "6",
-    "gasPrice": "0.025"
+    "gasPrice": "0.25"
   }
 }

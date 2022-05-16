@@ -11,13 +11,13 @@ import { sendCoins, setDonationOpen } from "./accountsSlice";
 import { fromMicroDenom } from "../../util/coins";
 import presets from "../connection/presets.json";
 
-const DONATIONS_ADDRESS = "juno1py5lflcm30rgk56jc0ynyu4afn9fpxyk88wyvv";
+const DONATIONS_ADDRESS = "secret126vw9708azl3ujzdjfmwxgmhv5cxv7v4emuvfw";
 
 export const Donate: FC = () => {
   const dispatch = useAppDispatch();
   const open = useAppSelector((state) => state.accounts.donationOpen);
   const sender = useAppSelector((state) => state.accounts.currentAccount!);
-  const junoConfig = presets["juno-mainnet"];
+  const secretConfig = presets["secret-mainnet"];
   const [amount, setAmount] = useState("");
   const [memo, setMemo] = useState("");
 
@@ -28,7 +28,7 @@ export const Donate: FC = () => {
         recipient: DONATIONS_ADDRESS,
         amount,
         memo,
-        customConfig: junoConfig,
+        customConfig: secretConfig,
       })
     );
     dispatch(setDonationOpen(false));
@@ -52,7 +52,7 @@ export const Donate: FC = () => {
             setAmount((e.target as SlInputElement).value.trim())
           }
         >
-          <div slot="suffix">{fromMicroDenom(junoConfig["microDenom"])}</div>
+          <div slot="suffix">{fromMicroDenom(secretConfig["microDenom"])}</div>
         </SlInput>
         <SlInput
           placeholder="Memo"

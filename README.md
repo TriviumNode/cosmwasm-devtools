@@ -1,10 +1,10 @@
 # cøsmwasm devtøøls
 
-a tool for interacting with cosmwasm contracts. online at https://cosmwasm.tools
+a tool for interacting with secret cosmwasm contracts. Forked from https://cosmwasm.tools
 
 ## how to use
 
-- default network is the Uni testnet for Juno, but you can use mainnet, your local dev server, or any compatible chain
+- default network is the Pulsar testnet for Secret, but you can use mainnet, your local dev server, or any compatible chain
 - add an account for sending coins - connect your wallet, or generate a new account
 - add your contract
 - insert your JSON message to send
@@ -17,7 +17,7 @@ a tool for interacting with cosmwasm contracts. online at https://cosmwasm.tools
 ## running locally
 
 ```
-git clone https://github.com/aswever/cosmwasm-devtools
+git clone https://github.com/xiphiar/cosmwasm-devtools
 cd cosmwasm-devtools
 yarn
 yarn start

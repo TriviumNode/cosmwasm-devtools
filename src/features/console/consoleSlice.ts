@@ -139,10 +139,10 @@ export const execute =
           const executeFunds = funds ?? executeOptions?.funds;
 
           return client.execute(
-            account.address,
+            // account.address,
             contract.address,
             executeObj,
-            "auto",
+            // "auto",
             executeMemo,
             executeFunds
               ? coins(
