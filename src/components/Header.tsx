@@ -7,7 +7,7 @@ import { ContractList } from "../features/accounts/ContractList";
 import { Connection } from "../features/connection/Connection";
 import styles from "./Header.module.css";
 
-const GITHUB_URL = "https://github.com/aswever/cosmwasm-devtools";
+const GITHUB_URL = "https://github.com/TriviumNode/cosmwasm-devtools";
 
 export const Header = () => {
   const dispatch = useAppDispatch();
