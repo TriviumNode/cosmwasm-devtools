@@ -13,8 +13,8 @@
   "secret-pulsar": {
     "chainName": "Secret Testnet - Pulsar",
     "chainId": "pulsar-2",
-    "rpcEndpoint": "https://pulsar-2.api.trivium.network:26657/",
-    "restEndpoint": "https://pulsar-2.api.trivium.network:1317/",
+    "rpcEndpoint": "https://rpc.pulsar.scrttestnet.com/",
+    "restEndpoint": "https://api.pulsar.scrttestnet.com/",
     "addressPrefix": "secret",
     "microDenom": "uscrt",
     "coinDecimals": "6",
