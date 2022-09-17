@@ -27,7 +27,7 @@ export function fromMicroAmount(amount: string, coinDecimals: string) {
 }
 
 export function fromMicroDenom(udenom: string): string {
-  return udenom.replace("u", "");
+  return udenom.replace("u", "").toUpperCase();
 }
 
 export function toMicroDenom(denom: string): string {
